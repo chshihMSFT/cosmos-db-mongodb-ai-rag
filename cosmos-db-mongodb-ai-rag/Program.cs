@@ -111,6 +111,7 @@ namespace cosmos_db_mongodb_ai_rag
 
                             c.dataembedding = returnValue.Value.Data[0].Embedding.ToArray();
                             c.tokenlen = c.dataembedding.Length;
+                            c.timestamp = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
 
                             Console.WriteLine($"{DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.ffffff")}, saving file: {{{c.id}, {c.firstName}, {c.lastName}, {c.tokenlen}}}");
                             file.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(c).ToString());
